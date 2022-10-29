@@ -2,7 +2,7 @@ name: Actions
 
 on:
   schedule:
-    - cron: "0 0/5 * * * ?" # cronで定期実行
+    - cron: "0 0 12 * * ?" # cronで定期実行
 
 jobs:
   build:
