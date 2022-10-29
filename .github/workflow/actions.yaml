@@ -1,0 +1,23 @@
+name: Actions
+
+on:
+  schedule:
+    - cron: "0 0/5 * * * ?" # cronで定期実行
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 # おまじない
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release
+
+      - uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: --release
